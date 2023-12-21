@@ -1,31 +1,41 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { AddressEntity } from 'src/address/entities/address.entity';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity({ name: 'user' })
 export class UserEntity {
-    @PrimaryGeneratedColumn('rowid')
-    id: number;
+  @PrimaryGeneratedColumn('rowid')
+  id: number;
 
-    @Column({ name: 'name', nullable: false })
-    name: string;
+  @Column({ name: 'name', nullable: false })
+  name: string;
 
-    @Column({ name: 'email', nullable: false })
-    email: string;
+  @Column({ name: 'email', nullable: false })
+  email: string;
 
-    @Column({ name: 'phone'})
-    phone: string;
+  @Column({ name: 'phone' })
+  phone: string;
 
-    @Column({ name: 'cpf', nullable: false })
-    cpf: string;
+  @Column({ name: 'cpf', nullable: false })
+  cpf: string;
 
-    @Column({ name: 'password', nullable: false })
-    password: string;
+  @Column({ name: 'password', nullable: false })
+  password: string;
 
-    @Column({ name: 'type_user' })
-    typeUser: number;
+  @Column({ name: 'type_user' })
+  typeUser: number;
 
-    @CreateDateColumn({ name: 'created_at' })
-    createdAt: number;
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: number;
 
-    @CreateDateColumn({ name: 'updated_at' })
-    updatedAt: number;
+  @CreateDateColumn({ name: 'updated_at' })
+  updatedAt: number;
+
+  @OneToMany(() => AddressEntity, (addressEntity) => addressEntity.user)
+  addresses?: AddressEntity[];
 }
