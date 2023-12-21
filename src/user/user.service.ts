@@ -7,23 +7,23 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class UserService {
-    constructor(
-        @InjectRepository(UserEntity)
-        private readonly userRepository: Repository<UserEntity>,
-    ) {}
-    
-    async createUser(createUserDto: CreateUserDto): Promise<UserEntity> {
-        const saltOrRounds = 10;
-        const passwordHashed = await hash(createUserDto.password, saltOrRounds);
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly userRepository: Repository<UserEntity>,
+  ) {}
 
-        return this.userRepository.save({
-            ...createUserDto,
-            typeUser: 1, 
-            password: passwordHashed,
-        })
-    }
+  async createUser(createUserDto: CreateUserDto): Promise<UserEntity> {
+    const saltOrRounds = 10;
+    const passwordHashed = await hash(createUserDto.password, saltOrRounds);
 
-    async getAllUsers(): Promise<UserEntity[]> {
-        return this.userRepository.find();
-    }
+    return this.userRepository.save({
+      ...createUserDto,
+      typeUser: 1,
+      password: passwordHashed,
+    });
+  }
+
+  async getAllUsers(): Promise<UserEntity[]> {
+    return this.userRepository.find();
+  }
 }

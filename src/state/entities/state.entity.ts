@@ -1,16 +1,24 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity({ name: 'state' })
 export class StateEntity {
-    @PrimaryGeneratedColumn('rowid')
-    id: number;
+  @PrimaryGeneratedColumn('rowid')
+  id: number;
 
-    @Column({ name: 'name', nullable: false })
-    name: string;
+  @Column({ name: 'name', nullable: false })
+  name: string;
 
-    @CreateDateColumn({ name: 'created_at' })
-    createdAt: number;
+  @Column({ name: 'uf', nullable: false })
+  uf: string;
 
-    @CreateDateColumn({ name: 'updated_at' })
-    updatedAt: number;
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: number;
+
+  @CreateDateColumn({ name: 'updated_at' })
+  updatedAt: number;
 }
