@@ -8,8 +8,8 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateUserDto } from './dto/createUser.dto';
-import { ReturnUserDto } from './dto/returnUser.dto';
+import { CreateUserDto } from './dtos/createUser.dto';
+import { ReturnUserDto } from './dtos/returnUser.dto';
 
 @Controller('user')
 export class UserController {
