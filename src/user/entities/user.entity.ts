@@ -1,4 +1,4 @@
-import { AddressEntity } from '../address/entities/address.entity';
+import { AddressEntity } from '../../address/entities/address.entity';
 import {
   Column,
   CreateDateColumn,
@@ -31,10 +31,10 @@ export class UserEntity {
   typeUser: number;
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: number;
+  createdAt: Date;
 
   @CreateDateColumn({ name: 'updated_at' })
-  updatedAt: number;
+  updatedAt: Date;
 
   @OneToMany(() => AddressEntity, (addressEntity) => addressEntity.user)
   addresses?: AddressEntity[];
