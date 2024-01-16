@@ -22,10 +22,10 @@ export class CityEntity {
   name: string;
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: number;
+  createdAt: Date;
 
   @CreateDateColumn({ name: 'updated_at' })
-  updatedAt: number;
+  updatedAt: Date;
 
   @OneToMany(() => AddressEntity, (address) => address.city)
   addresses?: AddressEntity[];

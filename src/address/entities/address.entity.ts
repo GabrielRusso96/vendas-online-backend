@@ -30,10 +30,10 @@ export class AddressEntity {
   cityId: number;
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: number;
+  createdAt: Date;
 
   @CreateDateColumn({ name: 'updated_at' })
-  updatedAt: number;
+  updatedAt: Date;
 
   @ManyToOne(() => UserEntity, (user) => user.addresses)
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })

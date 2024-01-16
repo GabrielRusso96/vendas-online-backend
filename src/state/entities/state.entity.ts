@@ -19,10 +19,10 @@ export class StateEntity {
   uf: string;
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: number;
+  createdAt: Date;
 
   @CreateDateColumn({ name: 'updated_at' })
-  updatedAt: number;
+  updatedAt: Date;
 
   @OneToMany(() => CityEntity, (city) => city.state)
   cities?: CityEntity[];
