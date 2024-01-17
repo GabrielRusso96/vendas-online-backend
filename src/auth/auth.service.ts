@@ -4,7 +4,7 @@ import { LoginDto } from './dtos/login.dto';
 import { UserService } from '../user/user.service';
 import { compare } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { Returnlogin } from './dtos/returnLogin.dto';
+import { ReturnLogin } from './dtos/returnLogin.dto';
 import { ReturnUserDto } from '../user/dtos/returnUser.dto';
 import { LoginPayload } from './dtos/loginPayload.dto';
 
@@ -15,7 +15,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async login(loginDto: LoginDto): Promise<Returnlogin> {
+  async login(loginDto: LoginDto): Promise<ReturnLogin> {
     const user: UserEntity = await this.userService
       .findUserByEmail(loginDto.email)
       .catch(() => undefined);
